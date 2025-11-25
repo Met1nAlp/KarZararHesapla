@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "424574094796",
+    "project_id": "karzararhesapla",
+    "storage_bucket": "karzararhesapla.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424574094796:android:993dd88dd0da1913d46169",
+        "android_client_info": {
+          "package_name": "com.example.karzararhesapla"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7bj0xTlKBf-6U3tMU4BFomAlHD3ohvEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
