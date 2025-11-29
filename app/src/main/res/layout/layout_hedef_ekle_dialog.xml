@@ -5,31 +5,62 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/rounded_card"
-    android:padding="24dp">
+    android:padding="28dp">
 
+    <!-- Modern Drag Handle -->
     <View
-        android:layout_width="40dp"
-        android:layout_height="4dp"
-        android:background="@color/text_secondary"
-        android:alpha="0.3"
+        android:layout_width="48dp"
+        android:layout_height="5dp"
+        android:background="@drawable/circle_background"
+        android:backgroundTint="@color/divider"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="28dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Modern Başlık -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Yeni Hedef Belirle"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/text_primary"
-        android:layout_marginBottom="16dp"/>
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yeni Hedef Belirle"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:letterSpacing="0.01"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Başarıya Giden Yol"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/circle_background"
+            android:backgroundTint="@color/blue_50"/>
+    </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Hedef Adı (Örn: Araba Almak)"
         app:startIconDrawable="@android:drawable/ic_menu_myplaces"
-        app:startIconTint="@color/purple_500"
+        app:startIconTint="@color/primary"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusTopStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
@@ -49,7 +80,7 @@
         android:layout_height="wrap_content"
         android:hint="Kategori (Örn: Finans, Kişisel)"
         app:startIconDrawable="@android:drawable/ic_menu_compass"
-        app:startIconTint="@color/purple_500"
+        app:startIconTint="@color/primary"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusTopStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
@@ -125,7 +156,7 @@
         android:orientation="horizontal"
         android:padding="16dp"
         android:background="@drawable/rounded_card"
-        android:backgroundTint="#F5F5F5"
+        android:backgroundTint="@color/surface_variant"
         android:gravity="center_vertical"
         android:layout_marginBottom="24dp">
 
@@ -133,7 +164,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@android:drawable/ic_menu_my_calendar"
-            android:tint="@color/purple_500"/>
+            android:tint="@color/primary"/>
 
         <TextView
             android:id="@+id/tvSelectedDate"
@@ -155,10 +186,15 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSaveTarget"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="60dp"
         android:text="Hedefi Başlat"
-        android:textSize="16sp"
+        android:textSize="17sp"
         android:textStyle="bold"
-        app:cornerRadius="12dp"/>
+        android:textColor="@color/white"
+        app:cornerRadius="16dp"
+        app:elevation="6dp"
+        app:icon="@android:drawable/star_on"
+        app:iconTint="@color/white"
+        android:backgroundTint="@color/primary"/>
 
 </LinearLayout>

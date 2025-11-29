@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ana Renkler (Fintech Teması - Dark) -->
+    <color name="primary">#90CAF9</color>     <!-- Daha açık mavi -->
+    <color name="primary_variant">#1565C0</color>
+    <color name="secondary">#80CBC4</color>   <!-- Daha açık teal -->
+    <color name="secondary_variant">#009688</color>
+    
+    <!-- Arkaplan ve Yüzey -->
+    <color name="background">#121212</color>  <!-- Koyu Gri/Siyah -->
+    <color name="surface">#1E1E1E</color>     <!-- Biraz daha açık koyu gri -->
+    <color name="surface_variant">#2C2C2C</color>
+
+    <!-- Durum Renkleri -->
+    <color name="error">#EF9A9A</color>       <!-- Açık Kırmızı -->
+    <color name="success">#81C784</color>     <!-- Açık Yeşil -->
+    <color name="warning">#FFE082</color>     <!-- Açık Turuncu -->
+    <color name="info">#64B5F6</color>        <!-- Açık Mavi -->
+
+    <!-- Metin Renkleri -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0BEC5</color>
+    <color name="text_hint">#757575</color>
+    <color name="text_on_primary">#000000</color>
+
+    <!-- Kar/Zarar Özel -->
+    <color name="profit_green">#66BB6A</color>
+    <color name="loss_red">#EF5350</color>
+    
+    <!-- Diğer -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="divider">#424242</color>
+    <color name="overlay">#80000000</color>
+
+    <!-- Gradient Renkleri -->
+    <color name="gradient_blue_start">#1565C0</color>
+    <color name="gradient_blue_end">#42A5F5</color>
+    <color name="gradient_green_start">#2E7D32</color>
+    <color name="gradient_green_end">#66BB6A</color>
+    <color name="gradient_profit_start">#43A047</color>
+    <color name="gradient_profit_end">#81C784</color>
+    
+    <!-- Eksik Renkler (Uyumluluk için) -->
+    <color name="divider_color">#424242</color>
+    <color name="bg_color">#121212</color>
+    
+    <!-- Eski renkler -->
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+</resources>

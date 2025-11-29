@@ -5,59 +5,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/bg_color"
-    tools:context=".UI.UyeOlSayfasi">
+    android:background="@color/background"
+    tools:context=".ui.UyeOlSayfasi">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!-- Geri Butonu -->
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@android:drawable/ic_menu_revert"
-            android:padding="8dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
+        <!-- Modern Geri Butonu -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardBackButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/surface"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent">
+            
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@android:drawable/ic_menu_revert"
+                android:padding="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/primary"/>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/tvRegisterTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Yeni Hesap Oluştur"
-            android:textSize="26sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="@color/text_primary"
-            app:layout_constraintTop_toBottomOf="@id/btnBack"
+            android:letterSpacing="0.01"
+            app:layout_constraintTop_toBottomOf="@id/cardBackButton"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="24dp"/>
+            android:layout_marginTop="32dp"/>
 
         <TextView
             android:id="@+id/tvRegisterSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Kar-zarar takibinize hemen başlayın"
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:textColor="@color/text_secondary"
+            android:alpha="0.9"
             app:layout_constraintTop_toBottomOf="@id/tvRegisterTitle"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="8dp"/>
 
-        <!-- Profil Fotoğrafı -->
+        <!-- Modern Profil Fotoğrafı -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardProfileImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:cardCornerRadius="50dp"
-            app:cardElevation="4dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="60dp"
+            app:cardElevation="8dp"
             app:layout_constraintTop_toBottomOf="@id/tvRegisterSubtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="32dp">
+            android:layout_marginTop="36dp">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -68,199 +80,255 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@android:drawable/ic_menu_camera"
-                    android:background="#E0E0E0"
+                    android:background="@drawable/gradient_card_blue"
                     android:scaleType="centerInside"
-                    android:padding="24dp"/>
+                    android:padding="28dp"
+                    app:tint="@color/white"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#33000000"/>
+                    android:background="@color/overlay_light"/>
 
                 <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:src="@android:drawable/ic_menu_camera"
                     android:layout_gravity="center"
-                    android:tint="@color/white"/>
+                    app:tint="@color/white"/>
             </FrameLayout>
         </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAddPhoto"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/primary"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="-16dp"
+            app:layout_constraintTop_toBottomOf="@id/cardProfileImage"
+            app:layout_constraintStart_toStartOf="@id/cardProfileImage">
+            
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@android:drawable/ic_input_add"
+                android:padding="8dp"
+                app:tint="@color/white"/>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/tvAddPhoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fotoğraf Ekle"
-            android:textSize="12sp"
-            android:textColor="@color/purple_500"
-            android:padding="8dp"
-            app:layout_constraintTop_toBottomOf="@id/cardProfileImage"
+            android:text="Profil Fotoğrafı Ekle"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:padding="10dp"
+            android:background="?attr/selectableItemBackground"
+            app:layout_constraintTop_toBottomOf="@id/cardAddPhoto"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"/>
 
-        <!-- Form Alanları -->
+        <!-- Modern Form Alanları -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilNameSurname"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="İsim Soyisim"
-            app:boxBackgroundMode="filled"
-            app:boxBackgroundColor="@color/white"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:startIconTint="@color/purple_500"
-            app:hintTextColor="@color/purple_500"
+            app:startIconDrawable="@android:drawable/ic_menu_myplaces"
+            app:startIconTint="@color/primary"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/primary"
+            app:hintTextColor="@color/primary"
             app:layout_constraintTop_toBottomOf="@id/tvAddPhoto"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="24dp">
+            android:layout_marginTop="28dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etNameSurname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:padding="16dp"/>
+                android:textSize="16sp"
+                android:padding="18dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPhone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Telefon Numarası"
-            app:boxBackgroundMode="filled"
-            app:boxBackgroundColor="@color/white"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:startIconTint="@color/purple_500"
+            app:startIconDrawable="@android:drawable/stat_sys_phone_call"
+            app:startIconTint="@color/primary"
             app:prefixText="+90 "
-            app:hintTextColor="@color/purple_500"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/primary"
+            app:hintTextColor="@color/primary"
             app:layout_constraintTop_toBottomOf="@id/tilNameSurname"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp">
+            android:layout_marginTop="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
-                android:padding="16dp"/>
+                android:textSize="16sp"
+                android:padding="18dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilCompany"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Şirket Bilgileri"
-            app:boxBackgroundMode="filled"
-            app:boxBackgroundColor="@color/white"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:startIconTint="@color/purple_500"
-            app:hintTextColor="@color/purple_500"
+            app:startIconDrawable="@android:drawable/ic_menu_sort_by_size"
+            app:startIconTint="@color/primary"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/primary"
+            app:hintTextColor="@color/primary"
             app:layout_constraintTop_toBottomOf="@id/tilPhone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp">
+            android:layout_marginTop="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etCompany"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:padding="16dp"/>
+                android:textSize="16sp"
+                android:padding="18dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilRegEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="E-posta"
-            app:boxBackgroundMode="filled"
-            app:boxBackgroundColor="@color/white"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:startIconTint="@color/purple_500"
-            app:hintTextColor="@color/purple_500"
+            app:startIconDrawable="@android:drawable/ic_dialog_email"
+            app:startIconTint="@color/primary"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/primary"
+            app:hintTextColor="@color/primary"
             app:layout_constraintTop_toBottomOf="@id/tilCompany"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp">
+            android:layout_marginTop="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etRegEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:padding="16dp"/>
+                android:textSize="16sp"
+                android:padding="18dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilRegPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Parola"
-            app:boxBackgroundMode="filled"
-            app:boxBackgroundColor="@color/white"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:startIconTint="@color/purple_500"
+            app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
+            app:startIconTint="@color/primary"
             app:endIconMode="password_toggle"
-            app:hintTextColor="@color/purple_500"
+            app:endIconTint="@color/primary"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/primary"
+            app:hintTextColor="@color/primary"
             app:helperText="En az 8 karakter"
+            app:helperTextTextColor="@color/text_secondary"
             app:layout_constraintTop_toBottomOf="@id/tilRegEmail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp">
+            android:layout_marginTop="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etRegPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:padding="16dp"/>
+                android:textSize="16sp"
+                android:padding="18dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Sözleşme Onayı -->
-            <CheckBox
-            android:id="@+id/cbTerms"
+        <!-- Modern Sözleşme Onayı -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTerms"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Kullanıcı sözleşmesini ve gizlilik politikasını kabul ediyorum"
-            android:textSize="12sp"
-            android:textColor="@color/text_secondary"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/blue_50"
             app:layout_constraintTop_toBottomOf="@id/tilRegPassword"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="20dp">
+            
+            <CheckBox
+                android:id="@+id/cbTerms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kullanıcı sözleşmesini ve gizlilik politikasını kabul ediyorum"
+                android:textSize="13sp"
+                android:textColor="@color/text_primary"
+                android:buttonTint="@color/primary"
+                android:padding="16dp"/>
+        </com.google.android.material.card.MaterialCardView>
 
-        <!-- Kayıt Ol Butonu -->
+        <!-- Modern Kayıt Ol Butonu -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRegister"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="62dp"
             android:text="Kayıt Ol ve Başla"
-            android:textSize="16sp"
+            android:textSize="17sp"
             android:textStyle="bold"
-            app:cornerRadius="12dp"
-            app:elevation="4dp"
-            app:layout_constraintTop_toBottomOf="@id/cbTerms"
+            android:textColor="@color/white"
+            app:cornerRadius="16dp"
+            app:elevation="6dp"
+            app:icon="@android:drawable/arrow_down_float"
+            app:iconGravity="end"
+            app:iconTint="@color/white"
+            android:backgroundTint="@color/primary"
+            app:layout_constraintTop_toBottomOf="@id/cardTerms"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"/>
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="32dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

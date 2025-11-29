@@ -6,24 +6,55 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/rounded_card"
-    android:padding="24dp">
+    android:padding="28dp">
 
+    <!-- Modern Drag Handle -->
     <View
-        android:layout_width="40dp"
-        android:layout_height="4dp"
-        android:background="@color/text_secondary"
-        android:alpha="0.3"
+        android:layout_width="48dp"
+        android:layout_height="5dp"
+        android:background="@drawable/circle_background"
+        android:backgroundTint="@color/divider"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="28dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Modern Başlık -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bilgileri Güncelle"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/text_primary"
-        android:layout_marginBottom="16dp"/>
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bilgileri Güncelle"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:letterSpacing="0.01"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profil Bilgilerinizi Düzenleyin"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/circle_background"
+            android:backgroundTint="@color/blue_50"/>
+    </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -82,10 +113,15 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSaveUpdate"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="60dp"
         android:text="Değişiklikleri Kaydet"
-        android:textSize="16sp"
+        android:textSize="17sp"
         android:textStyle="bold"
-        app:cornerRadius="12dp"/>
+        android:textColor="@color/white"
+        app:cornerRadius="16dp"
+        app:elevation="6dp"
+        app:icon="@android:drawable/ic_menu_save"
+        app:iconTint="@color/white"
+        android:backgroundTint="@color/primary"/>
 
 </LinearLayout>

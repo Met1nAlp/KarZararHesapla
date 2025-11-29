@@ -6,78 +6,133 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/rounded_card"
-    android:padding="24dp">
+    android:padding="28dp">
 
+    <!-- Modern Drag Handle -->
     <View
-        android:layout_width="40dp"
-        android:layout_height="4dp"
-        android:background="@color/text_secondary"
-        android:alpha="0.3"
+        android:layout_width="48dp"
+        android:layout_height="5dp"
+        android:background="@drawable/circle_background"
+        android:backgroundTint="@color/divider"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="28dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Modern Başlık -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Yeni İşlem Ekle"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/text_primary"
-        android:layout_marginBottom="16dp"/>
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="24dp">
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yeni İşlem Ekle"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:letterSpacing="0.01"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gelir veya Gider Ekleyin"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/circle_background"
+            android:backgroundTint="@color/blue_50"/>
+    </LinearLayout>
+
+    <!-- Modern İşlem Türü Seçici -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="İşlem Türü"
-        android:textSize="12sp"
-        android:textColor="@color/text_secondary"
-        android:layout_marginBottom="8dp"/>
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="12dp"/>
 
-    <RadioGroup
-        android:id="@+id/rgTransactionType"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp"
-        android:gravity="center_vertical">
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/surface_variant"
+        android:layout_marginBottom="20dp">
 
-        <RadioButton
-            android:id="@+id/rbPurchase"
-            android:layout_width="0dp"
+        <RadioGroup
+            android:id="@+id/rgTransactionType"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Alış / Gider"
-            android:textStyle="bold"
-            android:buttonTint="@color/loss_red"
-            android:checked="true"/>
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:gravity="center_vertical">
 
-        <RadioButton
-            android:id="@+id/rbSale"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Satış / Gelir"
-            android:textStyle="bold"
-            android:buttonTint="@color/profit_green"/>
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/rbPurchase"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="Alış / Gider"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:buttonTint="@color/loss_red"
+                android:checked="true"
+                android:background="?attr/selectableItemBackground"
+                android:paddingHorizontal="16dp"/>
+
+            <RadioButton
+                android:id="@+id/rbSale"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="Satış / Gelir"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:buttonTint="@color/profit_green"
+                android:background="?attr/selectableItemBackground"
+                android:paddingHorizontal="16dp"/>
+        </RadioGroup>
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilDescription"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Alınan Ürün / Açıklama"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusTopStart="12dp"
-        app:boxCornerRadiusTopEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
-        app:boxCornerRadiusBottomEnd="12dp"
-        android:layout_marginBottom="12dp">
+        app:startIconDrawable="@android:drawable/ic_menu_info_details"
+        app:startIconTint="@color/primary"
+        app:boxCornerRadiusTopStart="14dp"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusBottomStart="14dp"
+        app:boxCornerRadiusBottomEnd="14dp"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeColor="@color/primary"
+        app:hintTextColor="@color/primary"
+        android:layout_marginBottom="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapSentences"/>
+            android:inputType="textCapSentences"
+            android:textSize="16sp"
+            android:padding="18dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
@@ -93,7 +148,7 @@
             android:layout_height="wrap_content"
             android:text="Satılacak Ürünü Stoktan Seçin:"
             android:textSize="12sp"
-            android:textColor="@color/purple_500"
+            android:textColor="@color/primary"
             android:layout_marginBottom="4dp"/>
 
         <Spinner
@@ -105,50 +160,66 @@
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Tutar (₺)"
         app:startIconDrawable="@android:drawable/ic_menu_sort_by_size"
-        app:startIconTint="@color/purple_500"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusTopStart="12dp"
-        app:boxCornerRadiusTopEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
-        app:boxCornerRadiusBottomEnd="12dp"
-        android:layout_marginBottom="12dp">
+        app:startIconTint="@color/primary"
+        app:boxCornerRadiusTopStart="14dp"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusBottomStart="14dp"
+        app:boxCornerRadiusBottomEnd="14dp"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeColor="@color/primary"
+        app:hintTextColor="@color/primary"
+        android:layout_marginBottom="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            android:textSize="16sp"
+            android:padding="18dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilCategory"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Kategori (Opsiyonel)"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusTopStart="12dp"
-        app:boxCornerRadiusTopEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
-        app:boxCornerRadiusBottomEnd="12dp"
-        android:layout_marginBottom="24dp">
+        app:startIconDrawable="@android:drawable/ic_menu_view"
+        app:startIconTint="@color/primary"
+        app:boxCornerRadiusTopStart="14dp"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusBottomStart="14dp"
+        app:boxCornerRadiusBottomEnd="14dp"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeColor="@color/primary"
+        app:hintTextColor="@color/primary"
+        android:layout_marginBottom="28dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"/>
+            android:inputType="textCapWords"
+            android:textSize="16sp"
+            android:padding="18dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAddTransaction"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="60dp"
         android:text="İşlemi Kaydet"
-        android:textSize="16sp"
+        android:textSize="17sp"
         android:textStyle="bold"
-        app:cornerRadius="12dp"/>
+        android:textColor="@color/white"
+        app:cornerRadius="16dp"
+        app:elevation="6dp"
+        android:backgroundTint="@color/primary"/>
 
 </LinearLayout>

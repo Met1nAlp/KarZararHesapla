@@ -20,8 +20,8 @@
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Large</item>
         
         <!-- Durum Çubuğu -->
-        <item name="android:statusBarColor">@color/background</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/primary_variant</item>
+        <item name="android:windowLightStatusBar">false</item> <!-- Koyu renk status bar, beyaz ikonlar -->
     </style>
 
     <style name="Theme.KarZararHesapla" parent="Base.Theme.KarZararHesapla" />

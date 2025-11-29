@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color"
-    tools:context=".UI.HedeflerSayfasi">
+    android:background="@color/background"
+    tools:context=".ui.HedeflerSayfasi">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -17,31 +17,57 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="24dp">
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="20dp">
 
-            <ImageView
-                android:id="@+id/btnBack"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@android:drawable/ic_menu_revert"
-                android:padding="8dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardBackButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/surface"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:id="@+id/tvTitle"
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@android:drawable/ic_menu_revert"
+                    android:padding="12dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="@color/primary"/>
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hedeflerim"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary"
-                app:layout_constraintTop_toTopOf="@id/btnBack"
-                app:layout_constraintBottom_toBottomOf="@id/btnBack"
-                app:layout_constraintStart_toEndOf="@id/btnBack"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="@id/cardBackButton"
+                app:layout_constraintBottom_toBottomOf="@id/cardBackButton"
+                app:layout_constraintStart_toEndOf="@id/cardBackButton"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginStart="12dp"/>
+                android:layout_marginStart="16dp">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hedeflerim"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:letterSpacing="0.01"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="İlerlemeyi Takip Et"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -54,424 +80,70 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:paddingHorizontal="24dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp">
 
-            <!-- Yeni Hedef Ekle Butonu -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnYeniHedef"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="+ Yeni Hedef Ekle"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:icon="@android:drawable/ic_input_add"
-                app:iconGravity="textStart"
-                app:cornerRadius="12dp"
-                android:layout_marginBottom="24dp"/>
-
-            <!-- Filtre Sekmesi -->
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayoutTargets"
+            <!-- Modern Filtre Kartı -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                app:tabMode="fixed"
-                app:tabGravity="fill"
-                app:tabSelectedTextColor="@color/purple_500"
-                app:tabTextColor="@color/text_secondary"
-                app:tabIndicatorColor="@color/purple_500"
-                android:layout_marginBottom="16dp"/>
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/surface"
+                android:layout_marginBottom="24dp">
 
-            <!-- Aktif Hedefler Başlığı -->
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayoutTargets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    app:tabMode="fixed"
+                    app:tabGravity="fill"
+                    app:tabSelectedTextColor="@color/primary"
+                    app:tabTextColor="@color/text_secondary"
+                    app:tabIndicatorColor="@color/primary"
+                    app:tabIndicatorHeight="3dp"
+                    app:tabTextAppearance="@android:style/TextAppearance.Medium"
+                    android:paddingVertical="4dp"/>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Modern Aktif Hedefler Başlığı -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Aktif Hedefler"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_primary"
-                android:layout_marginBottom="12dp"/>
+                android:letterSpacing="0.01"
+                android:layout_marginBottom="20dp"/>
 
-            <!-- Hedef Kartı 1 - Araba Satışı -->
-            <androidx.cardview.widget.CardView
+            <!-- Modern Hedef Listesi -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTargets"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/white">
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"
+                android:paddingBottom="16dp"/>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp">
-
-                    <!-- İkon ve Kategori -->
-                    <ImageView
-                        android:id="@+id/iconTarget1"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@android:drawable/ic_menu_compass"
-                        android:tint="@color/purple_500"
-                        android:padding="8dp"
-                        android:background="@drawable/circle_background_light"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
-
-                    <TextView
-                        android:id="@+id/tvTargetTitle1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="Araba Satışı"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/text_primary"
-                        app:layout_constraintTop_toTopOf="@id/iconTarget1"
-                        app:layout_constraintStart_toEndOf="@id/iconTarget1"
-                        app:layout_constraintEnd_toStartOf="@id/btnMenu1"
-                        android:layout_marginStart="12dp"/>
-
-                    <TextView
-                        android:id="@+id/tvTargetDate1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Son Tarih: 30 Ara 2024"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_secondary"
-                        app:layout_constraintTop_toBottomOf="@id/tvTargetTitle1"
-                        app:layout_constraintStart_toStartOf="@id/tvTargetTitle1"
-                        android:layout_marginTop="4dp"/>
-
-                    <ImageView
-                        android:id="@+id/btnMenu1"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@android:drawable/ic_menu_more"
-                        android:padding="4dp"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        app:layout_constraintTop_toTopOf="@id/iconTarget1"
-                        app:layout_constraintEnd_toEndOf="parent"/>
-
-                    <!-- Progress Section -->
-                    <LinearLayout
-                        android:id="@+id/llProgress1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        app:layout_constraintTop_toBottomOf="@id/iconTarget1"
-                        android:layout_marginTop="20dp">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Tamamlanan"
-                                android:textSize="12sp"
-                                android:textColor="@color/text_secondary"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="8 Adet"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginTop="4dp"/>
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="40dp"
-                            android:background="@color/text_secondary"
-                            android:alpha="0.3"
-                            android:layout_marginHorizontal="16dp"/>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Hedef"
-                                android:textSize="12sp"
-                                android:textColor="@color/text_secondary"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="10 Adet"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginTop="4dp"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:layout_marginStart="16dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="80%"
-                                android:textSize="24sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/profit_green"/>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- Progress Bar -->
-                    <ProgressBar
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="8dp"
-                        android:progress="80"
-                        android:progressTint="@color/profit_green"
-                        android:progressBackgroundTint="#E0E0E0"
-                        app:layout_constraintTop_toBottomOf="@id/llProgress1"
-                        android:layout_marginTop="16dp"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Hedef Kartı 2 - Borsa Karı -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/white">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp">
-
-                    <ImageView
-                        android:id="@+id/iconTarget2"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@android:drawable/ic_menu_sort_by_size"
-                        android:tint="@color/teal_700"
-                        android:padding="8dp"
-                        android:background="@drawable/circle_background_light"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
-
-                    <TextView
-                        android:id="@+id/tvTargetTitle2"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="Borsa Karı"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/text_primary"
-                        app:layout_constraintTop_toTopOf="@id/iconTarget2"
-                        app:layout_constraintStart_toEndOf="@id/iconTarget2"
-                        app:layout_constraintEnd_toStartOf="@id/btnMenu2"
-                        android:layout_marginStart="12dp"/>
-
-                    <TextView
-                        android:id="@+id/tvTargetDate2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Son Tarih: 31 Ara 2024"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_secondary"
-                        app:layout_constraintTop_toBottomOf="@id/tvTargetTitle2"
-                        app:layout_constraintStart_toStartOf="@id/tvTargetTitle2"
-                        android:layout_marginTop="4dp"/>
-
-                    <ImageView
-                        android:id="@+id/btnMenu2"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@android:drawable/ic_menu_more"
-                        android:padding="4dp"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        app:layout_constraintTop_toTopOf="@id/iconTarget2"
-                        app:layout_constraintEnd_toEndOf="parent"/>
-
-                    <LinearLayout
-                        android:id="@+id/llProgress2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        app:layout_constraintTop_toBottomOf="@id/iconTarget2"
-                        android:layout_marginTop="20dp">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Mevcut"
-                                android:textSize="12sp"
-                                android:textColor="@color/text_secondary"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="40.000₺"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginTop="4dp"/>
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="40dp"
-                            android:background="@color/text_secondary"
-                            android:alpha="0.3"
-                            android:layout_marginHorizontal="16dp"/>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Hedef"
-                                android:textSize="12sp"
-                                android:textColor="@color/text_secondary"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="100.000₺"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginTop="4dp"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:layout_marginStart="16dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="40%"
-                                android:textSize="24sp"
-                                android:textStyle="bold"
-                                android:textColor="@android:color/holo_orange_dark"/>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <ProgressBar
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="8dp"
-                        android:progress="40"
-                        android:progressTint="@android:color/holo_orange_dark"
-                        android:progressBackgroundTint="#E0E0E0"
-                        app:layout_constraintTop_toBottomOf="@id/llProgress2"
-                        android:layout_marginTop="16dp"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Tamamlanan Hedefler Başlığı -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tamamlanan Hedefler"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="12dp"/>
-
-            <!-- Tamamlanan Hedef Örneği -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/white"
-                android:alpha="0.8">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="20dp"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@android:drawable/checkbox_on_background"
-                        android:tint="@color/profit_green"
-                        android:padding="8dp"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginStart="12dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ev Satışı"
-                            android:textStyle="bold"
-                            android:textSize="16sp"
-                            android:textColor="@color/text_primary"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tamamlandı: 15 Kas 2024"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_secondary"
-                            android:layout_marginTop="4dp"/>
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="100%"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/profit_green"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabAddTarget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="28dp"
+        android:text="Hedef Ekle"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        app:icon="@android:drawable/ic_input_add"
+        app:iconTint="@color/white"
+        app:backgroundTint="@color/primary"
+        app:elevation="12dp"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

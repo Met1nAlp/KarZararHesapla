@@ -13,22 +13,22 @@
         android:theme="@style/Theme.KarZararHesapla"
         tools:targetApi="31">
         <activity
-            android:name=".UI.HedeflerSayfasi"
+            android:name=".ui.HedeflerSayfasi"
             android:exported="false" />
         <activity
-            android:name=".UI.KarZararSayfasi"
+            android:name=".ui.KarZararSayfasi"
             android:exported="false" />
         <activity
-            android:name=".UI.ProfilSayfasi"
+            android:name=".ui.ProfilSayfasi"
             android:exported="false" />
         <activity
-            android:name=".UI.AnaSayfa"
+            android:name=".ui.AnaSayfa"
             android:exported="false" />
         <activity
-            android:name=".UI.UyeOlSayfasi"
+            android:name=".ui.UyeOlSayfasi"
             android:exported="false" />
         <activity
-            android:name=".UI.GirisSayfasi"
+            android:name=".ui.GirisSayfasi"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
